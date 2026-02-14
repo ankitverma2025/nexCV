@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="text-center text-gray-600 dark:text-gray-400">
           <p>© {currentYear} Ankit Verma. All rights reserved.</p>
           <p className="text-sm mt-2">
-            Built with Next.js, TypeScript, and Tailwind CSS
+            Made in India with pride 🇮🇳
           </p>
         </div>
       </div>
