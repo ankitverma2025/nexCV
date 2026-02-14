@@ -110,7 +110,7 @@ export default function Dashboard() {
                     <td className="py-3 px-4 text-gray-600">{user.email}</td>
                     <td className="py-3 px-4">
                       <a
-                        href={`http://localhost:3000/${user.username}`}
+                        href={`${process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:3000'}/${user.username}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:underline"
@@ -225,7 +225,7 @@ export default function Dashboard() {
 
               <div className="mt-6 flex gap-3">
                 <a
-                  href={`http://localhost:3000/${selectedUser.username}`}
+                  href={`${process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:3000'}/${selectedUser.username}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary flex-1 text-center"
