@@ -2,6 +2,7 @@ import api from './api';
 import type { AuthResponse, ApiResponse } from '@/types';
 
 const TOKEN_KEY = 'admin_token';
+const USERNAME_KEY = 'admin_username';
 
 export const authLib = {
   getToken(): string | null {
@@ -15,6 +16,16 @@ export const authLib = {
 
   removeToken(): void {
     localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(USERNAME_KEY);
+  },
+
+  getUsername(): string | null {
+    if (typeof window === 'undefined') return null;
+    return localStorage.getItem(USERNAME_KEY);
+  },
+
+  setUsername(username: string): void {
+    localStorage.setItem(USERNAME_KEY, username);
   },
 
   async login(email: string, password: string): Promise<AuthResponse> {
@@ -29,6 +40,7 @@ export const authLib = {
 
     const { token, user } = response.data.data;
     this.setToken(token);
+    this.setUsername(user.username);
     return { token, user };
   },
 
@@ -46,6 +58,7 @@ export const authLib = {
 
     const { token, user } = response.data.data;
     this.setToken(token);
+    this.setUsername(user.username);
     return { token, user };
   },
 
