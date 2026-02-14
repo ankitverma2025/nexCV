@@ -191,6 +191,61 @@ export default function Home() {
           </CollapsibleSection>
         </div>
       </div>
+
+      {/* Desktop: Normal layout */}
+      <div className="hidden md:block">
+        {/* Experience Section */}
+        {experiences.length > 0 && (
+          <section className="section-padding bg-white dark:bg-gray-900">
+            <div className="container-custom">
+              <h2 className="section-title">💼 Experience</h2>
+              <div className="space-y-8">
+                {experiences.map((exp) => (
+                  <ExperienceCard key={exp._id} experience={exp} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Education Section */}
+        {education.length > 0 && (
+          <section className="section-padding bg-gray-50 dark:bg-gray-800">
+            <div className="container-custom">
+              <h2 className="section-title">🎓 Education</h2>
+              <div className="space-y-8">
+                {education.map((edu) => (
+                  <EducationCard key={edu._id} education={edu} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Skills Section */}
+        {skills.length > 0 && (
+          <section className="section-padding bg-white dark:bg-gray-900">
+            <div className="container-custom">
+              <h2 className="section-title">⚡ Skills</h2>
+              <SkillsGrid skills={skills} />
+            </div>
+          </section>
+        )}
+
+        {/* Projects Section */}
+        {projects.length > 0 && (
+          <section className="section-padding bg-gray-50 dark:bg-gray-800">
+            <div className="container-custom">
+              <h2 className="section-title">🚀 Projects</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {projects.map((project) => (
+                  <ProjectCard key={project._id} project={project} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+      </div>
     </>
   );
 }
